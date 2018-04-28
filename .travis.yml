@@ -8,8 +8,8 @@ env:
    #   via the "travis encrypt" command using the project repo's public key
    - secure: "JvZOeCIJ3Wl8Nm1/TLL78nmUq/6F9jvzZWR2IyDiOUc/zIMza5flIrkIWwJBIKBUCPGBe/9CmieRSLZ0iNJWxtoYn+xQJdTR0PkyX/fgrNGdwgXuOlvcUwKAPAvXcxVJ/rfUrWQmMuwIlaTxFSNdhka0kzlkCMm9CySdi2/QO+PNx7gAospbe/XRal5iJRRXgwYawiTg6UpioR9Cfx6Bacvbh7VBtiLLSv5OflZWeGjVjiLY411nD0rMfhnwRXlPIVXfWDKFQS3Jgw44EYPNZeXXWGHtxuEZIS/tprShm8Y+N+jdBFrPAeELV3Nm/ANZURS3u1uLOUiuA3JMl/eU5ok217T8HsXmgwlj6XRAm9w2IstPrB1YJz5NfOH5h/nhOlhsW+aXjjzbp9gXwqhRUrqmYBAjRKr2PVyH52lB5MaWe71RtPD0mZTgRVr9vpwIg4D+Uc7/5J7M8pABYO7r4r30rWDCEcCy6CQUuJGcahgF5y1kwUvhVtlW0dMLoHxfUdZMSgeqnh2mKjxBZnjuVdtoDoLPBsPhNCGub3DXD2BDYz/Knrdg/WB8fU8XaX7vA+d01YicRhFSkIniRu5Vdnl1wPFUEt8zmoeSnXWATAxrFa0p7bcfiWk/glO4wmBtkfJ7WckmK41Xc/tONkozKp++9jQl6LvniX3qbBJG7Y4="
 
-before_install:
-  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+#before_install:
+#  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
 addons:
   coverity_scan:
@@ -18,3 +18,5 @@ addons:
     build_command: "make -j2"
     branch_pattern: master
     
+script:
+  - make -j2   
